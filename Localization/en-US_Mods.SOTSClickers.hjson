@@ -1,0 +1,26 @@
+ClickEffect: {
+	AncientSteelEffect: {
+		Name: Piercing Click
+		Description: Has a chance to apply a stacking, permanent bleed debuff
+	}
+
+	VesperaEffect: {
+		Name: Rock Throw
+		Description: Throws chunks of rock
+	}
+}
+
+Items: {
+	AncientSteelClicker: {
+		DisplayName: Ancient Steel Clicker
+		Tooltip: Critical strikes deal 50% more damage
+	}
+
+	VesperaClicker: {
+		DisplayName: Vespera Clicker
+		Tooltip: ""
+	}
+}
+
+DamageClasses.VoidClicker.DisplayName: "{0} void + clicker {1}"
+Projectiles.AncientSteelClickerProj.DisplayName: Ancient Steel Clicker Proj
