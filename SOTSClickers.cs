@@ -40,5 +40,4 @@ namespace SOTSClickers
             tooltips.Add(Name);
         }
     }
-
 }

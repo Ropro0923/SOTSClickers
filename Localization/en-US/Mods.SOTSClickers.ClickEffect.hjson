@@ -1,0 +1,9 @@
+AncientSteelEffect: {
+	Name: Piercing Click
+	Description: Has a chance to apply a stacking, permanent bleed debuff
+}
+
+VesperaEffect: {
+	Name: Rock Throw
+	Description: Throws {0} chunks of rock
+}

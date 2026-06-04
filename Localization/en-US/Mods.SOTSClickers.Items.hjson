@@ -1,0 +1,18 @@
+AncientSteelClicker: {
+	DisplayName: Ancient Steel Clicker
+	Tooltip: ""
+}
+
+VesperaClicker: {
+	DisplayName: Vespera Clicker
+	Tooltip: ""
+}
+
+RaspberryMilkCookies: {
+	DisplayName: Raspberry Milk n' Cookies
+	Tooltip:
+		'''
+		{$ClickerClass.Items.MilkCookies.Tooltip}
+		{$ClickerClass.Items.ChocolateChip.Tooltip@1}
+		'''
+}

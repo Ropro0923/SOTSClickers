@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using ClickerClass;
 using SOTS.Void;
-using Terraria;
 using Terraria.Localization;
 
 namespace SOTSClickers.Content.Items.Weapons.VoidClicker
@@ -10,22 +8,19 @@ namespace SOTSClickers.Content.Items.Weapons.VoidClicker
     public abstract class SOTSVoidClicker : VoidItem
     {
         public override LocalizedText Tooltip => Language.GetOrRegister(SOTSClickers.Clicker.GetLocalizationKey("Common.Tooltips.Clicker"));
-        public override string Texture => "SOTSClickers/Assets/Textures/Content/Items/Weapons/VoidClicker/" + Name;
-
+        public override string Texture => $"SOTSClickers/Assets/Textures/Content/Items/Weapons/VoidClicker/{Name}";
+        public virtual void SafeSetStaticDefaults() { }
+        public override void SetStaticDefaults()
+        {
+            ClickerCompat.RegisterClickerWeapon(this);
+            CreateEffects();
+            SafeSetStaticDefaults();
+        }
         public abstract float RadiusWidth { get; }
         public abstract Color RadiusColor { get; }
         public abstract int DustType { get; }
         public virtual List<string>? Effects { get; } = [];
-
-        public virtual void SafeSetStaticDefaults() { }
-        public sealed override void SetStaticDefaults()
-        {
-            ClickerSystem.RegisterClickerWeapon(this, borderTexture: Texture + "_Outline");
-            CreateEffects();
-            SafeSetStaticDefaults();
-        }
-
-        public virtual void VoidSafeSetDefaults() { }
+        public abstract void VoidSetDefaults();
         public sealed override void SafeSetDefaults()
         {
             ClickerCompat.SetClickerWeaponDefaults(Item);
@@ -33,9 +28,7 @@ namespace SOTSClickers.Content.Items.Weapons.VoidClicker
             ClickerCompat.SetColor(Item, RadiusColor);
             ClickerCompat.SetDust(Item, DustType);
             Effects?.ForEach(effect => ClickerCompat.AddEffect(Item, effect));
-            Item.DamageType = Core.DamageClasses.VoidClicker.Instance;
-
-            VoidSafeSetDefaults();
+            VoidSetDefaults();
         }
         public virtual void CreateEffects() { }
     }

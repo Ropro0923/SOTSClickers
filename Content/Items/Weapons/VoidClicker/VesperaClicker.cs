@@ -1,15 +1,17 @@
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
 using ClickerClass;
+using Microsoft.Xna.Framework;
+using SOTS.Dusts;
+using SOTS.Projectiles.Earth;
 using SOTSClickers.Core;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
-using SOTS.Dusts;
 
 namespace SOTSClickers.Content.Items.Weapons.VoidClicker
 {
+
     public class VesperaClicker : SOTSVoidClicker
     {
         public override float RadiusWidth => 1.7f;
@@ -18,9 +20,9 @@ namespace SOTSClickers.Content.Items.Weapons.VoidClicker
 
         public override List<string>? Effects => ["SOTSClickers:VesperaEffect"];
 
-        public override int GetVoid(Player player) => 5;
+        public override int GetVoid(Player player) => 10;
 
-        public override void VoidSafeSetDefaults()
+        public override void VoidSetDefaults()
         {
             Item.damage = 5;
             Item.width = 30;
@@ -29,13 +31,18 @@ namespace SOTSClickers.Content.Items.Weapons.VoidClicker
             //    Item.value = Item.sellPrice(0, 0, 18, 0);
             Item.rare = ItemRarityID.Blue;
         }
+        public const int ROCK_COUNT = 3;
         public override void CreateEffects()
         {
-            SOTSClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 11, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
+            SOTSClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 7, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
             {
-
+                for (int i = 0; i < ROCK_COUNT; i++)
+                {
+                    Projectile.NewProjectile(source, position, new Vector2((i - 1) * 1.35f + Main.rand.NextFloat(-0.45f, 0.45f), -Main.rand.NextFloat(2, 3)), ModContent.ProjectileType<EvostonePebble>(), damage, knockBack, player.whoAmI);
+                }
             },
-            preHardMode: true);
+            preHardMode: true,
+            descriptionArgs: [ROCK_COUNT]);
         }
     }
 }
