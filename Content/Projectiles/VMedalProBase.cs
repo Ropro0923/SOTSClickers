@@ -1,0 +1,86 @@
+using ClickerClass;
+using ClickerClass.Projectiles;
+using Microsoft.Xna.Framework;
+using SOTSClickers.Common.Utilities;
+using SOTSClickers.Core.ModPlayers;
+using Terraria;
+
+namespace SOTSClickers.Content.Projectiles
+{
+    public abstract class VMedalProBase : ClickerProjectile
+    {
+        public const int TotalCount = 4;
+
+        public int Mode
+        {
+            get => (int)Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+
+        public float MouseoverAlpha
+        {
+            get => Projectile.ai[1];
+            set => Projectile.ai[1] = value;
+        }
+
+        public float Rot
+        {
+            get => Projectile.localAI[0];
+            set => Projectile.localAI[0] = value;
+        }
+
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.aiStyle = -1;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 10;
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 150) * MouseoverAlpha * Projectile.Opacity;
+        }
+
+        public Vector2 rotVec = new(0, 120);
+
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            SOTSClickerPlayer clickerPlayer = player.GetModPlayer<SOTSClickerPlayer>();
+
+            if (player.whoAmI != Projectile.owner)
+            {
+                //Hide for everyone but the owner
+                Projectile.alpha = 255;
+            }
+
+            if (clickerPlayer.AccVMedal)
+            {
+                Projectile.timeLeft = 10;
+            }
+
+            Rot = player.GetModPlayer<ClickerPlayer>().accMedalRot;
+            Projectile.Center = player.Center + rotVec.RotatedBy(Rot + (Mode * (6.28f / TotalCount)));
+            Projectile.gfxOffY = player.gfxOffY;
+
+            if (MouseoverAlpha > 0.1f)
+            {
+                MouseoverAlpha -= 0.01f;
+            }
+
+            if (MouseoverAlpha < 0.1f)
+            {
+                MouseoverAlpha = 0.1f;
+            }
+        }
+    }
+}

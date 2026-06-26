@@ -1,4 +1,3 @@
-
 using Terraria;
 using Terraria.ModLoader;
 using SOTSClickers.Content.Items.Weapons.VoidClicker;
@@ -29,10 +28,10 @@ namespace SOTSClickers.Common.Balance
             {
                 string[] splitText = damage.Text.Split(' ');
                 string damageValue = splitText.First();
-                string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
+            //    string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
 
                 if (item.CountsAsClass(ModContent.GetInstance<VoidClicker>()))
-                    damage.Text = Language.GetTextValue("Mods.SOTSClickers.DamageClasses.VoidClicker.DisplayName", damageValue, damageWord);
+                    damage.Text = Language.GetTextValue("Mods.SOTSClickers.DamageClasses.VoidClicker.DisplayName", damageValue);
             }
 
             TooltipLine? consumevoid = tooltips.FirstOrDefault(x => x.Name == "UseMana" && x.Mod == "Terraria");
@@ -64,9 +63,8 @@ namespace SOTSClickers.Common.Balance
             void InsertVoid(float mult)
             {
                 TooltipLine? tt = tooltips.LastOrDefault(x => x.IsModifier);
-                string sign = mult > 1 ? "+" : "";
                 int voidCostTooltip = (int)(100f * (mult - 1f));
-                TooltipLine line = new(Mod, "PrefixAwakened", sign + voidCostTooltip + Language.GetTextValue("Mods.SOTS.Prefixes.CosVoid.DisplayName"))
+                TooltipLine line = new(Mod, "PrefixAwakened", Language.GetText("Mods.SOTS.Prefixes.Effects.CosVoid").WithFormatArgs(voidCostTooltip).Value)
                 {
                     IsModifier = true,
                     IsModifierBad = mult > 1f,
@@ -74,29 +72,29 @@ namespace SOTSClickers.Common.Balance
                 tooltips.Insert(tooltips.IndexOf(tt!) + 1, line);
             }
         }
-    //    static Hook? voidCostHook;
-    //    public override void Load()
-    //    {
-    //        MethodInfo? method = typeof(VoidItem).GetMethod("VoidCost", BindingFlags.Public | BindingFlags.Instance);
-    //        if (method != null)
-    //            voidCostHook = new Hook(method, VoidCostDetour);
-    //    }
-    //    private int VoidCostDetour(Func<VoidItem, Player, int> orig, VoidItem self, Player player)
-    //    {
-    //        Item item = self.Item;
-    //        if (self is SOTSVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
-    //        {
-    //            return (int)(self.GetVoid(player) * VoidPlayer.ModPlayer(player).voidCost * item.GetGlobalItem<PrefixItem>().voidCostMultiplier);
-    //        }
-    //        else
-    //        {
-    //            return orig(self, player);
-    //        }
-    //    }
-    //    public override void Unload()
-    //    {
-    //        voidCostHook?.Dispose();
-    //        voidCostHook = null;
-    //    }
+        static Hook? voidCostHook;
+        public override void Load()
+        {
+            MethodInfo? method = typeof(VoidItem).GetMethod("VoidCost", BindingFlags.Public | BindingFlags.Instance);
+            if (method != null)
+                voidCostHook = new Hook(method, VoidCostDetour);
+        }
+        private int VoidCostDetour(Func<VoidItem, Player, int> orig, VoidItem self, Player player)
+        {
+            Item item = self.Item;
+            if (self is SOTSVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
+            {
+                return (int)(self.GetVoid(player) * VoidPlayer.ModPlayer(player).voidCost * item.GetGlobalItem<PrefixItem>().voidCostMultiplier);
+            }
+            else
+            {
+                return orig(self, player);
+            }
+        }
+        public override void Unload()
+        {
+            voidCostHook?.Dispose();
+            voidCostHook = null;
+        }
     }
 }

@@ -11,11 +11,11 @@
 	<ItemGroup>
 		
 		<Reference Include="ClickerClass">
-	    	<HintPath>..\ModAssemblies\ClickerClass_v1.4.1.2.dll</HintPath>
+	    	<HintPath>..\ModAssemblies\ClickerClass_v1.4.2.dll</HintPath>
 		</Reference>
 
 		<Reference Include="SOTS">
-	    	<HintPath>..\ModAssemblies\SOTS_v0.25.1.6.dll</HintPath>
+	    	<HintPath>..\ModAssemblies\SOTS_v0.25.1.7.dll</HintPath>
 		</Reference>
 
 	</ItemGroup>

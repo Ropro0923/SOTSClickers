@@ -12,7 +12,18 @@ RaspberryMilkCookies: {
 	DisplayName: Raspberry Milk n' Cookies
 	Tooltip:
 		'''
-		{$ClickerClass.Items.MilkCookies.Tooltip}
+		{$ClickerClass.Items.Cookie.Tooltip}
+		Occasionally, the cookie will be a wrath cookie, granting bonus clicker damage
+		{$ClickerClass.Items.Milk.Tooltip}
 		{$ClickerClass.Items.ChocolateChip.Tooltip@1}
+		'''
+}
+
+VMedal: {
+	DisplayName: V Medal
+	Tooltip:
+		'''
+		While equipped, empowering circles will rotate around you
+		Keeping your cursor within the circles will build up clicker critical strikes, clicker radius, clicker effects, and void regeneration
 		'''
 }

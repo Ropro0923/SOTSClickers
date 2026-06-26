@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using ClickerClass;
 using ClickerClass.Items;
 using ClickerClass.Items.Accessories;
+using SOTSClickers.Common.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -10,26 +12,18 @@ namespace SOTSClickers.Content.Items.Accessories
 {
     public class RaspberryMilkCookies : ClickerItem
     {
-        public override bool IsLoadingEnabled(Mod mod)
-        {
-            return false;
-        }
-        public override LocalizedText Tooltip => Tooltip.WithFormatArgs(Milk.DamageIncrease, ChocolateChip.ClickAmount);
+    //    public override bool IsLoadingEnabled(Mod mod) => false;
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(Milk.DamageIncrease, ChocolateChip.ClickAmount);
         public override void SetDefaults()
         {
             Item.width = 28;
             Item.height = 36;
             Item.accessory = true;
-            Item.value = Item.sellPrice(0, 0, 0, 1);
-            Item.rare = ItemRarityID.Blue;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ClickerPlayer click = player.GetModPlayer<ClickerPlayer>();
-            click.EnableClickEffect(ClickEffect.ChocolateChip);
-            click.accCookieItem = Item;
-            click.accCookie2 = true;
-            click.accGlassOfMilk = true;
+            ModContent.GetInstance<ChocolateMilkCookies>().UpdateAccessory(player, hideVisual);
+            player.SOTSClickerPlayer().accRaspberryMilkCookies = Item;
         }
         public override void AddRecipes()
         {
