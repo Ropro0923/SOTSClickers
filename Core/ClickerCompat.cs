@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace SOTSClickers
+namespace ClickersOfTheShadows
 {
     // Copy this file for your mod, change the namespace above to yours, and read the comments
     /// <summary>

@@ -12,7 +12,7 @@ using ClickerClass.Items.Accessories;
 using ClickerClass.UI;
 using ClickerClass;
 
-namespace SOTSClickers.Content.UI
+namespace ClickersOfTheShadows.Content.UI
 {
     internal abstract class MedalGaugeBase : InterfaceResource
     {
@@ -26,8 +26,8 @@ namespace SOTSClickers.Content.UI
 
         protected MedalGaugeBase(string name, InterfaceScaleType scaleType) : base(name, scaleType)
         {
-            sheetAsset = new(() => ModContent.Request<Texture2D>("SOTSClickers/Assets/Textures/Content/UI/" + TexturePath));
-            MouseoverText = Language.GetOrRegister(SOTSClickers.Clicker.GetLocalizationKey("UI.MedalGauge")); //Same for all gauges
+            sheetAsset = new(() => ModContent.Request<Texture2D>("ClickersOfTheShadows/Assets/Textures/Content/UI/" + TexturePath));
+            MouseoverText = Language.GetOrRegister(ClickersOfTheShadows.Clicker.GetLocalizationKey("UI.MedalGauge")); //Same for all gauges
         }
 
         protected abstract int GetValue();
@@ -42,7 +42,7 @@ namespace SOTSClickers.Content.UI
         public override void Update(GameTime gameTime)
         {
             Player player = Main.LocalPlayer;
-            ClickerPlayer    clickerPlayer = player.GetClickerPlayer();
+            ClickerPlayer clickerPlayer = player.GetClickerPlayer();
             if (player.dead)
             {
                 FadeTime = 0;

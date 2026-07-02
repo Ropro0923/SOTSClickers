@@ -2,7 +2,7 @@ using ClickerClass;
 using SOTS.Void;
 using Terraria.ModLoader;
 
-namespace SOTSClickers.Core.DamageClasses
+namespace ClickersOfTheShadows.Core.DamageClasses
 {
     public class VoidClicker : DamageClass
     {

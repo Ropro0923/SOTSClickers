@@ -1,22 +1,22 @@
 using Terraria;
 using Terraria.ModLoader;
-using SOTSClickers.Content.Items.Weapons.VoidClicker;
+using ClickersOfTheShadows.Content.Items.Weapons.VoidClicker;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria.Localization;
-using SOTSClickers.Core.DamageClasses;
+using ClickersOfTheShadows.Core.DamageClasses;
 using SOTS.Void;
-using SOTSClickers.Content.Prefixes;
+using ClickersOfTheShadows.Content.Prefixes;
 using System;
 using System.Reflection;
 using MonoMod.RuntimeDetour;
 using SOTS;
 
-namespace SOTSClickers.Common.Balance
+namespace ClickersOfTheShadows.Common.Balance
 {
     public class VoidClickerMerge : GlobalItem
     {
-        public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.ModItem is SOTSVoidClicker;
+        public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void SetDefaults(Item item)
         {
             item.DamageType = VoidClicker.Instance;
@@ -28,14 +28,14 @@ namespace SOTSClickers.Common.Balance
             {
                 string[] splitText = damage.Text.Split(' ');
                 string damageValue = splitText.First();
-            //    string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
+                //    string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
 
                 if (item.CountsAsClass(ModContent.GetInstance<VoidClicker>()))
-                    damage.Text = Language.GetTextValue("Mods.SOTSClickers.DamageClasses.VoidClicker.DisplayName", damageValue);
+                    damage.Text = Language.GetTextValue("Mods.ClickersOfTheShadows.DamageClasses.VoidClicker.DisplayName", damageValue);
             }
 
             TooltipLine? consumevoid = tooltips.FirstOrDefault(x => x.Name == "UseMana" && x.Mod == "Terraria");
-            TooltipLine? clickeffect = tooltips.FirstOrDefault(x => x.Name.Contains("ClickEffect_") && x.Mod == SOTSClickers.Clicker.Name);
+            TooltipLine? clickeffect = tooltips.FirstOrDefault(x => x.Name.Contains("ClickEffect_") && x.Mod == ClickersOfTheShadows.Clicker.Name);
             if (consumevoid != null && clickeffect != null)
             {
                 TooltipLine line = consumevoid;
@@ -82,7 +82,7 @@ namespace SOTSClickers.Common.Balance
         private int VoidCostDetour(Func<VoidItem, Player, int> orig, VoidItem self, Player player)
         {
             Item item = self.Item;
-            if (self is SOTSVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
+            if (self is ClickersOfTheShadowsVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
             {
                 return (int)(self.GetVoid(player) * VoidPlayer.ModPlayer(player).voidCost * item.GetGlobalItem<PrefixItem>().voidCostMultiplier);
             }

@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 
-namespace SOTSClickers.Content.Projectiles
+namespace ClickersOfTheShadows.Content.Projectiles
 {
     public class WrathCookiePro : ClickerProjectile
     {
         // Code from Clicker Class Mod
-        public override string Texture => $"SOTSClickers/Assets/Textures/Content/Projectiles/{Name}";
+        public override string Texture => $"ClickersOfTheShadows/Assets/Textures/Content/Projectiles/{Name}";
         public Vector2 location = Vector2.Zero;
         public bool LockedLocation
         {

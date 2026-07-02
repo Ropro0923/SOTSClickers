@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Reflection;
 using ClickerClass.UI;
 using Terraria.ModLoader;
-using SOTSClickers.Content.UI;
+using ClickersOfTheShadows.Content.UI;
 
-namespace SOTSClickers.Core.ModSystems
+namespace ClickersOfTheShadows.Core.ModSystems
 {
     public class VMedalSystem : ModSystem
     {
         public override void OnModLoad()
         {
-            Type? type = SOTSClickers.Clicker.GetType().Assembly?.GetType("ClickerClass.UI.ClickerInterfaceResources");
-        
+            Type? type = ClickersOfTheShadows.Clicker.GetType().Assembly?.GetType("ClickerClass.UI.ClickerInterfaceResources");
+
             if (type != null)
             {
                 if (type.GetField("Resources", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) is List<InterfaceResource> resources)

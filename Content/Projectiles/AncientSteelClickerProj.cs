@@ -3,11 +3,11 @@ using SOTS.Common.GlobalNPCs;
 using Terraria;
 using Terraria.ID;
 
-namespace SOTSClickers.Content.Projectiles
+namespace ClickersOfTheShadows.Content.Projectiles
 {
-    public class AncientSteelClickerProj : SOTSClickerProjectile
+    public class AncientSteelClickerProj : ClickersOfTheShadowsClickerProjectile
     {
-        public override string Texture => "SOTSClickers/Assets/Textures/BlankPixel";
+        public override string Texture => "ClickersOfTheShadows/Assets/Textures/BlankPixel";
         public override void SafeSetDefaults()
         {
             Projectile.width = 15;

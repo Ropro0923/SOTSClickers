@@ -1,7 +1,7 @@
-namespace SOTSClickers.Content.Projectiles
+namespace ClickersOfTheShadows.Content.Projectiles
 {
     public class VMedalPro : VMedalProBase
     {
-        public override string Texture => $"SOTSClickers/Assets/Textures/Content/Projectiles/{Name}";
+        public override string Texture => $"ClickersOfTheShadows/Assets/Textures/Content/Projectiles/{Name}";
     }
 }

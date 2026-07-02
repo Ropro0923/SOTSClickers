@@ -1,4 +1,4 @@
-namespace SOTSClickers.Content.Projectiles
+namespace ClickersOfTheShadows.Content.Projectiles
 {
     public class VMedalPro3 : VMedalProBase
     {

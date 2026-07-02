@@ -1,11 +1,11 @@
 using ClickerClass;
 using ClickerClass.Projectiles;
 using Microsoft.Xna.Framework;
-using SOTSClickers.Common.Utilities;
-using SOTSClickers.Core.ModPlayers;
+using ClickersOfTheShadows.Common.Utilities;
+using ClickersOfTheShadows.Core.ModPlayers;
 using Terraria;
 
-namespace SOTSClickers.Content.Projectiles
+namespace ClickersOfTheShadows.Content.Projectiles
 {
     public abstract class VMedalProBase : ClickerProjectile
     {
@@ -55,7 +55,7 @@ namespace SOTSClickers.Content.Projectiles
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            SOTSClickerPlayer clickerPlayer = player.GetModPlayer<SOTSClickerPlayer>();
+            ClickersOfTheShadowsPlayer clickerPlayer = player.GetModPlayer<ClickersOfTheShadowsPlayer>();
 
             if (player.whoAmI != Projectile.owner)
             {

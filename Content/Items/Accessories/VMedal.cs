@@ -1,13 +1,13 @@
 using ClickerClass.Items;
 using Terraria;
-using SOTSClickers.Common.Utilities;
+using ClickersOfTheShadows.Common.Utilities;
 using ClickerClass;
 
-namespace SOTSClickers.Content.Items.Accessories
+namespace ClickersOfTheShadows.Content.Items.Accessories
 {
     public class VMedal : ClickerItem
     {
-        public override string Texture => "SOTSClickers/Assets/Textures/Content/Items/Accessories/VMedal";
+        public override string Texture => "ClickersOfTheShadows/Assets/Textures/Content/Items/Accessories/VMedal";
         public static readonly int ChargeMeterMax = 300; // grr
         public static readonly int ChargeMeterStep = ChargeMeterMax / 15;
         public static readonly int VoidRecovery = 2;
@@ -19,7 +19,7 @@ namespace SOTSClickers.Content.Items.Accessories
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.SOTSClickerPlayer().accVMedalItem = Item;
+            player.ClickersOfTheShadowsClickerPlayer().accVMedalItem = Item;
             player.GetModPlayer<ClickerPlayer>().accSMedalItem = Item;
         }
     }

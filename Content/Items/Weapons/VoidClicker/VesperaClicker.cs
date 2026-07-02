@@ -3,21 +3,21 @@ using ClickerClass;
 using Microsoft.Xna.Framework;
 using SOTS.Dusts;
 using SOTS.Projectiles.Earth;
-using SOTSClickers.Core;
+using ClickersOfTheShadows.Core;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SOTSClickers.Content.Items.Weapons.VoidClicker
+namespace ClickersOfTheShadows.Content.Items.Weapons.VoidClicker
 {
 
-    public class VesperaClicker : SOTSVoidClicker
+    public class VesperaClicker : ClickersOfTheShadowsVoidClicker
     {
         public override float RadiusWidth => 1f;
         public override Color RadiusColor => new(79, 98, 113);
         public override int DustType => ModContent.DustType<CopyDust4>();
-        public override List<string>? Effects => ["SOTSClickers:VesperaEffect"];
+        public override List<string>? Effects => ["ClickersOfTheShadows:VesperaEffect"];
         public override int GetVoid(Player player) => 10;
         public override void VoidSetDefaults()
         {
@@ -29,7 +29,7 @@ namespace SOTSClickers.Content.Items.Weapons.VoidClicker
         public const int ROCK_COUNT = 3;
         public override void CreateEffects()
         {
-            SOTSClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 7, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
+            ClickersOfTheShadowsClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 7, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
             {
                 for (int i = 0; i < ROCK_COUNT; i++)
                 {

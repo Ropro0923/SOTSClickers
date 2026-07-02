@@ -1,10 +1,10 @@
 using ClickerClass.Projectiles;
-using SOTSClickers.Common.Utilities;
+using ClickersOfTheShadows.Common.Utilities;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace SOTSClickers.Core.GlobalProjectiles
+namespace ClickersOfTheShadows.Core.GlobalProjectiles
 {
     public class VMedalPatch : GlobalProjectile
     {
@@ -16,7 +16,7 @@ namespace SOTSClickers.Core.GlobalProjectiles
         }
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if (Main.player[projectile.owner].SOTSClickerPlayer().AccVMedal) projectile.Kill();
+            if (Main.player[projectile.owner].ClickersOfTheShadowsClickerPlayer().AccVMedal) projectile.Kill();
         }
     }
 }

@@ -1,9 +1,9 @@
 using ClickerClass.Prefixes.ClickerPrefixes;
 using SOTS;
-using SOTSClickers.Content.Items.Weapons.VoidClicker;
+using ClickersOfTheShadows.Content.Items.Weapons.VoidClicker;
 using Terraria;
 
-namespace SOTSClickers.Content.Prefixes
+namespace ClickersOfTheShadows.Content.Prefixes
 {
     public class FamishedClicker : ClickerPrefix
     {
@@ -15,7 +15,7 @@ namespace SOTSClickers.Content.Prefixes
         {
             valueMult *= 0.9f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is SOTSVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -32,7 +32,7 @@ namespace SOTSClickers.Content.Prefixes
         {
             valueMult *= 1.03f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is SOTSVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -49,7 +49,7 @@ namespace SOTSClickers.Content.Prefixes
         {
             valueMult *= 1.07f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is SOTSVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -66,7 +66,7 @@ namespace SOTSClickers.Content.Prefixes
         {
             valueMult *= 1.16f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is SOTSVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -77,13 +77,13 @@ namespace SOTSClickers.Content.Prefixes
     {
         public ChthonicClicker() : base(1.24f, 0, 0, 5)
         {
-            
+
         }
         public override void ModifyValue(ref float valueMult)
         {
             valueMult *= 1.06f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is SOTSVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);

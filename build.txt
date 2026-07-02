@@ -1,5 +1,6 @@
-displayName = SOTS Clickers
+displayName = Clickers Of The Shadows
 author = Ropro0923
 version = 0.0.1
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*
 modReferences = ClickerClass, SOTS
+weakReferences = CalamityClickers, CalamityMod
