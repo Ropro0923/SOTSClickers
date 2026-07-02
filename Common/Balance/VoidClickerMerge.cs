@@ -16,7 +16,7 @@ namespace ClickersOfTheShadows.Common.Balance
 {
     public class VoidClickerMerge : GlobalItem
     {
-        public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool AppliesToEntity(Item item, bool lateInstantiation) => item.ModItem is CotSVoidClicker;
         public override void SetDefaults(Item item)
         {
             item.DamageType = VoidClicker.Instance;
@@ -82,7 +82,7 @@ namespace ClickersOfTheShadows.Common.Balance
         private int VoidCostDetour(Func<VoidItem, Player, int> orig, VoidItem self, Player player)
         {
             Item item = self.Item;
-            if (self is ClickersOfTheShadowsVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
+            if (self is CotSVoidClicker && (item.prefix == ModContent.PrefixType<FamishedClicker>() || item.prefix == ModContent.PrefixType<PrecariousClicker>() || item.prefix == ModContent.PrefixType<PotentClicker>() || item.prefix == ModContent.PrefixType<OmnipotentClicker>() || item.prefix == ModContent.PrefixType<ChthonicClicker>()))
             {
                 return (int)(self.GetVoid(player) * VoidPlayer.ModPlayer(player).voidCost * item.GetGlobalItem<PrefixItem>().voidCostMultiplier);
             }

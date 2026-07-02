@@ -16,10 +16,10 @@ namespace ClickersOfTheShadows.Core.GlobalProjectiles
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             Player owner = Main.player[projectile.owner];
-            ClickersOfTheShadowsPlayer mp = owner.ClickersOfTheShadowsClickerPlayer();
-            if (projectile.frame != 1 && Main.rand.NextFloat() <= WRATHPERCENT / 100 && mp.AccRaspberryMilkCookies)
+            CotSPlayer mp = owner.CotSPlayer();
+            if (projectile.frame != 1 && Main.rand.NextFloat() <= WRATHPERCENT / 100 && mp.AccWrathCookie)
             {
-                Projectile.NewProjectile(owner.GetSource_Accessory(mp.accRaspberryMilkCookies!), projectile.Center, Vector2.Zero, ModContent.ProjectileType<WrathCookiePro>(), 0, 0, projectile.owner);
+                Projectile.NewProjectile(owner.GetSource_Accessory(mp.accWrathCookie!), projectile.Center, Vector2.Zero, ModContent.ProjectileType<WrathCookiePro>(), 0, 0, projectile.owner);
                 projectile.active = false;
             }
         }

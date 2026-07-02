@@ -16,7 +16,7 @@ namespace ClickersOfTheShadows.Core.GlobalProjectiles
         }
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if (Main.player[projectile.owner].ClickersOfTheShadowsClickerPlayer().AccVMedal) projectile.Kill();
+            if (Main.player[projectile.owner].CotSPlayer().AccVMedal) projectile.Kill();
         }
     }
 }

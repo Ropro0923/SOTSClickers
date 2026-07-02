@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 namespace ClickersOfTheShadows.Content.Items.Weapons.VoidClicker
 {
 
-    public class VesperaClicker : ClickersOfTheShadowsVoidClicker
+    public class VesperaClicker : CotSVoidClicker
     {
         public override float RadiusWidth => 1f;
         public override Color RadiusColor => new(79, 98, 113);
@@ -29,7 +29,7 @@ namespace ClickersOfTheShadows.Content.Items.Weapons.VoidClicker
         public const int ROCK_COUNT = 3;
         public override void CreateEffects()
         {
-            ClickersOfTheShadowsClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 7, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
+            CotSClickEffects.VesperaEffect = ClickerSystem.RegisterClickEffect(Mod, "VesperaEffect", 7, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
             {
                 for (int i = 0; i < ROCK_COUNT; i++)
                 {

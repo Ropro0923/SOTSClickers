@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace ClickersOfTheShadows.Content.Projectiles
 {
-    public class AncientSteelClickerProj : ClickersOfTheShadowsClickerProjectile
+    public class AncientSteelClickerProj : CotSClickerProjectile
     {
         public override string Texture => "ClickersOfTheShadows/Assets/Textures/BlankPixel";
         public override void SafeSetDefaults()

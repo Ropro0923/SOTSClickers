@@ -55,7 +55,7 @@ namespace ClickersOfTheShadows.Content.Projectiles
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            ClickersOfTheShadowsPlayer clickerPlayer = player.GetModPlayer<ClickersOfTheShadowsPlayer>();
+            CotSPlayer clickerPlayer = player.GetModPlayer<CotSPlayer>();
 
             if (player.whoAmI != Projectile.owner)
             {

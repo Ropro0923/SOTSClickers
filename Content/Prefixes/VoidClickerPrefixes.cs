@@ -15,7 +15,7 @@ namespace ClickersOfTheShadows.Content.Prefixes
         {
             valueMult *= 0.9f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is CotSVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -32,7 +32,7 @@ namespace ClickersOfTheShadows.Content.Prefixes
         {
             valueMult *= 1.03f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is CotSVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -49,7 +49,7 @@ namespace ClickersOfTheShadows.Content.Prefixes
         {
             valueMult *= 1.07f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is CotSVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -66,7 +66,7 @@ namespace ClickersOfTheShadows.Content.Prefixes
         {
             valueMult *= 1.16f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is CotSVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);
@@ -83,7 +83,7 @@ namespace ClickersOfTheShadows.Content.Prefixes
         {
             valueMult *= 1.06f;
         }
-        public override bool CanRoll(Item item) => item.ModItem is ClickersOfTheShadowsVoidClicker;
+        public override bool CanRoll(Item item) => item.ModItem is CotSVoidClicker;
         public override void Apply(Item item)
         {
             base.Apply(item);

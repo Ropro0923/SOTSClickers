@@ -13,12 +13,13 @@ using Terraria.ModLoader;
 
 namespace ClickersOfTheShadows.Core.ModPlayers
 {
-    public partial class ClickersOfTheShadowsPlayer : ModPlayer
+    public partial class CotSPlayer : ModPlayer
     {
         public override void ResetEffects()
         {
             accVMedalItem = null;
             accRaspberryMilkCookies = null;
+            accWrathCookie = null;
         }
         public Item? accVMedalItem = null;
         public bool AccVMedal => accVMedalItem != null && !accVMedalItem.IsAir;
@@ -26,6 +27,10 @@ namespace ClickersOfTheShadows.Core.ModPlayers
 
         public Item? accRaspberryMilkCookies = null;
         public bool AccRaspberryMilkCookies => accRaspberryMilkCookies != null && !accRaspberryMilkCookies.IsAir;
+
+        public Item? accWrathCookie = null;
+        public bool AccWrathCookie => accWrathCookie != null && !accWrathCookie.IsAir;
+
 
         public override void PostUpdateEquips()
         {

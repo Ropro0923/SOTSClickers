@@ -11,7 +11,7 @@ using SOTS.Projectiles.Laser;
 
 namespace ClickersOfTheShadows.Content.Items.Weapons.Clicker
 {
-    public class VibrantClicker : ClickersOfTheShadowsClicker
+    public class VibrantClicker : CotSClicker
     {
         public override float RadiusWidth => 1f;
         public override Color RadiusColor => new(117, 156, 35);
@@ -26,7 +26,7 @@ namespace ClickersOfTheShadows.Content.Items.Weapons.Clicker
         }
         public override void CreateEffects()
         {
-            ClickersOfTheShadowsClickEffects.VibrantEffect = ClickerSystem.RegisterClickEffect(Mod, "VibrantEffect", 11, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
+            CotSClickEffects.VibrantEffect = ClickerSystem.RegisterClickEffect(Mod, "VibrantEffect", 11, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
             {
                 Projectile.NewProjectile(source, position, Vector2.Zero, ModContent.ProjectileType<VibrantRing>(), damage, 0);
             },

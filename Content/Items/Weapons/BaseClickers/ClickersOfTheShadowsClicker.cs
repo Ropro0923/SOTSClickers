@@ -5,7 +5,7 @@ using ClickerClass;
 
 namespace ClickersOfTheShadows.Content.Items.Weapons.Clicker
 {
-    public abstract class ClickersOfTheShadowsClicker : ClickerWeapon
+    public abstract class CotSClicker : ClickerWeapon
     {
         public override string Texture => "ClickersOfTheShadows/Assets/Textures/Content/Items/Weapons/Clicker/" + Name;
         public abstract float RadiusWidth { get; }

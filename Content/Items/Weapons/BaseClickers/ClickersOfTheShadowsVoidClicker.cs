@@ -5,7 +5,7 @@ using Terraria.Localization;
 
 namespace ClickersOfTheShadows.Content.Items.Weapons.VoidClicker
 {
-    public abstract class ClickersOfTheShadowsVoidClicker : VoidItem
+    public abstract class CotSVoidClicker : VoidItem
     {
         public override LocalizedText Tooltip => Language.GetOrRegister(ClickersOfTheShadows.Clicker.GetLocalizationKey("Common.Tooltips.Clicker"));
         public override string Texture => $"ClickersOfTheShadows/Assets/Textures/Content/Items/Weapons/VoidClicker/{Name}";

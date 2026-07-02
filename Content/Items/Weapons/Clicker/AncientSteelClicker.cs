@@ -10,7 +10,7 @@ using ClickersOfTheShadows.Content.Projectiles;
 
 namespace ClickersOfTheShadows.Content.Items.Weapons.Clicker
 {
-    public class AncientSteelClicker : ClickersOfTheShadowsClicker
+    public class AncientSteelClicker : CotSClicker
     {
         public override float RadiusWidth => 1f;
         public override Color RadiusColor => new(108, 115, 140);
@@ -25,7 +25,7 @@ namespace ClickersOfTheShadows.Content.Items.Weapons.Clicker
         }
         public override void CreateEffects()
         {
-            ClickersOfTheShadowsClickEffects.AncientSteelEffect = ClickerSystem.RegisterClickEffect(Mod, "AncientSteelEffect", 11, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
+            CotSClickEffects.AncientSteelEffect = ClickerSystem.RegisterClickEffect(Mod, "AncientSteelEffect", 11, RadiusColor, delegate (Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, int type, int damage, float knockBack)
             {
                 Projectile.NewProjectile(source, position, Vector2.Zero, ModContent.ProjectileType<AncientSteelClickerProj>(), damage, knockBack, player.whoAmI);
             },

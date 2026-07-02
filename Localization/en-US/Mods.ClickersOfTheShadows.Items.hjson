@@ -12,8 +12,7 @@ RaspberryMilkCookies: {
 	DisplayName: Raspberry Milk n' Cookies
 	Tooltip:
 		'''
-		{$ClickerClass.Items.Cookie.Tooltip}
-		Occasionally, the cookie will be a wrath cookie, granting bonus clicker damage
+		{$Items.WrathCookie.Tooltip}
 		{$ClickerClass.Items.Milk.Tooltip}
 		{$ClickerClass.Items.ChocolateChip.Tooltip@1}
 		'''
@@ -30,3 +29,12 @@ VMedal: {
 
 IcyClicker.DisplayName: Icy Clicker
 VibrantClicker.DisplayName: Vibrant Clicker
+
+WrathCookie: {
+	DisplayName: Wrath Cookie
+	Tooltip:
+		'''
+		{$ClickerClass.Items.Cookie.Tooltip}
+		Occasionally, the cookie will be a wrath cookie, granting bonus clicker damage
+		'''
+}

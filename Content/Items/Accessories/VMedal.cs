@@ -19,7 +19,7 @@ namespace ClickersOfTheShadows.Content.Items.Accessories
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.ClickersOfTheShadowsClickerPlayer().accVMedalItem = Item;
+            player.CotSPlayer().accVMedalItem = Item;
             player.GetModPlayer<ClickerPlayer>().accSMedalItem = Item;
         }
     }

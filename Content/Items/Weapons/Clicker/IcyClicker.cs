@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace ClickersOfTheShadows.COntent.Items.Weapons.Clicker
 {
-    public class IcyClicker : ClickersOfTheShadowsClicker
+    public class IcyClicker : CotSClicker
     {
         public override float RadiusWidth => 1f;
         public override Color RadiusColor => new(187, 199, 225);
